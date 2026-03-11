@@ -95,7 +95,7 @@ export default function LandingPage() {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xl text-blue-400">📜</span>
-            <span className="text-xs font-bold uppercase tracking-widest">Certificación Oficial</span>
+            <span className="text-xs font-bold uppercase tracking-widest">Certificado de Aprobación</span>
           </div>
         </div>
       </div>
@@ -287,9 +287,9 @@ export default function LandingPage() {
       {/* SECCIÓN 5 — PERFIL DEL ESTUDIANTE */}
       <section className="py-24 bg-slate-600 text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-8 italic">Dirigido a quienes buscan transformar la salud </h2>
-          <p className="text-2xl font-light max-w-3xl mx-auto leading-relaxed">
-            Profesionales de enfermería y de la salud que desean ampliar su campo profesional y especializarse en el ámbito educativo. 
+          <h2 className="text-4xl font-bold mb-8">Dirigido a quienes buscan transformar la salud.</h2>
+          <p className="text-2xl font-light max-w-3xl mx-auto leading-relaxed  italic">
+            "Profesionales de enfermería y de la salud que desean ampliar su campo profesional y especializarse en el ámbito educativo."
           </p>
         </div>
       </section>
@@ -345,19 +345,21 @@ export default function LandingPage() {
         <div>
           <h5 className="font-black text-[#0f4c75] text-xl">Carga Horaria Total</h5>
           <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mt-1">
-            600 horas cátedra • Certificación Nacional
+            140 horas cátedra • Certificación Instituto Ferrer
           </p>
         </div>
       </div>
       <a 
-        href="#inscripcion" 
-        className="whitespace-nowrap px-10 py-5 bg-[#0f4c75] text-white font-black rounded-2xl hover:bg-[#3282b8] transition-all shadow-lg shadow-blue-900/10 flex items-center gap-3"
-      >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-        </svg>
-        DESCARGAR BROCHURE PDF
-      </a>
+  href="https://hsjpvvchlfdaswnmnmsk.supabase.co/storage/v1/object/public/files/Diplomatura%20en%20Enfermeria%20Escolar.pdf" 
+  target="_blank" rel="noopener noreferrer"
+  download="Plan_de_Estudios_2026.pdf"
+  className="whitespace-nowrap px-10 py-5 bg-[#0f4c75] text-white font-black rounded-2xl hover:bg-[#3282b8] transition-all shadow-lg shadow-blue-900/10 flex items-center gap-3"
+>
+  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+  </svg>
+  DESCARGAR PLAN EN PDF
+</a>
     </div>
   </div>
 </section>
@@ -477,63 +479,83 @@ export default function LandingPage() {
         </div>
       </section>
 
-     {/* SECCIÓN 12 — CTA FINAL + FORMULARIO (INSCRIPCIÓN) */}
-<section className="py-24 bg-[#fafaf9]" id="inscripcion">
-  <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 xl:gap-24 items-start"> {/* Ajusté a items-start para mejor flujo con form largo */}
+{/* SECCIÓN 12 — CTA FINAL + FORMULARIO (INSCRIPCIÓN) - OPTIMIZADA & EQUILIBRADA */}
+<section className="py-20 bg-[#fafaf9] relative" id="inscripcion">
+  {/* Sutil acento de color en el fondo para mobile y PC */}
+  <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-b from-blue-50/50 to-transparent lg:hidden" />
+
+  <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
     
-    <div className="max-w-xl lg:pt-10"> {/* Padding superior para alinear con el inicio del form */}
-      {/* Badge de estado */}
-      <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full mb-8">
+    <div className="max-w-xl lg:py-10">
+      {/* Badge de Urgencia - Más sobrio */}
+      <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-full mb-6 shadow-sm">
         <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
-        <span className="text-[10px] font-black tracking-[0.2em] text-[#0f4c75] uppercase">
+        <span className="text-[10px] font-black tracking-widest text-slate-500 uppercase">
           Ciclo Lectivo 2026
         </span>
       </div>
 
-      <h2 className="text-5xl lg:text-6xl font-black text-slate-800 mb-8 leading-tight tracking-tighter">
-        Inscripción <br />
-        <span className="text-[#3282b8] italic font-serif">abierta</span>
+      <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 leading-tight tracking-tighter">
+        Inscribite y asegurá <br className="hidden sm:block" />
+        <span className="text-blue-600">tu vacante hoy.</span>
       </h2>
       
-      <p className="text-xl text-slate-500 font-medium leading-relaxed mb-10">
-        Completá tus datos para recibir el programa detallado, costos y bonificaciones vigentes para la nueva cohorte.
+      <p className="text-lg text-slate-500 font-medium leading-relaxed mb-8">
+        Completá tus datos para recibir el programa detallado, costos y el beneficio del 30% OFF por pago único.
       </p>
 
-      {/* Cita Institucional Suavizada */}
-      <div className="relative p-8 bg-white rounded-[2rem] shadow-sm border border-slate-100 overflow-hidden group hover:shadow-md transition-shadow">
-        <div className="absolute top-0 left-0 w-2 h-full bg-[#3282b8]/20 group-hover:bg-[#f59e0b] transition-colors" />
-        <p className="text-lg text-[#0f4c75] font-bold italic leading-relaxed">
-          "La salud también se construye en la escuela, y vos podés ser el referente que lidere ese cambio."
-        </p>
+      {/* Caja de Precios - Optimizada para Mobile (Stack vertical en cel, horizontal en PC) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+          <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Inversión mensual</p>
+          <div className="flex items-baseline gap-1">
+            <span className="text-2xl font-black text-slate-800">$65.000</span>
+            <span className="text-[10px] text-slate-400 font-bold">/MES</span>
+          </div>
+        </div>
+        
+        <div className="p-5 bg-blue-600 rounded-2xl shadow-md relative overflow-hidden">
+          <div className="absolute top-0 right-0 bg-amber-400 text-amber-950 text-[9px] font-black px-2 py-1 rounded-bl-lg uppercase">
+            Más elegido
+          </div>
+          <p className="text-[9px] font-black uppercase tracking-widest text-blue-100 mb-1">Pago Único</p>
+          <span className="text-2xl font-black text-white italic">30% DESCUENTO</span>
+        </div>
       </div>
 
-      {/* Info de contacto rápido */}
-      <div className="mt-8 flex gap-8 items-center opacity-60">
+      {/* Info de pago rápida */}
+      <div className="flex flex-wrap gap-4 pt-6 border-t border-slate-200">
         <div className="flex items-center gap-2">
-          <span className="text-blue-500">✓</span>
-          <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Cupos Limitados</span>
+          <div className="h-6 w-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[10px]">✓</div>
+          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tight">Transferencia</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-blue-500">✓</span>
-          <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Pago en cuotas</span>
+          <div className="h-6 w-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[10px]">✓</div>
+          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tight">Western Union</span>
         </div>
       </div>
     </div>
 
-    {/* Contenedor del Formulario con el nuevo ContactForm integrado */}
-    <div className="relative w-full max-w-lg mx-auto lg:mr-0">
-      {/* Adornos decorativos */}
-      <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#bbe1fa]/30 rounded-full blur-3xl -z-10" />
-      <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#f59e0b]/20 rounded-full blur-3xl -z-10" />
+    {/* Contenedor del Formulario - Limpio y con aire */}
+    <div className="relative w-full">
+      {/* Sombra decorativa lateral solo en PC */}
+      <div className="absolute -inset-4 bg-blue-600/5 rounded-[3rem] blur-2xl hidden lg:block" />
       
-      {/* Contenedor con padding mínimo para que el ContactForm maneje su propio diseño interno */}
-      <div className="p-1 bg-white rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(15,76,117,0.15)] border border-slate-50">
-        <ContactForm />
+      <div className="bg-white rounded-[2.5rem] sm:rounded-[3rem] shadow-[0_20px_50px_-12px_rgba(15,76,117,0.15)] border border-slate-50 relative">
+        
+        <div className="p-6 sm:p-10">
+          <div className="mb-8">
+            <h3 className="text-2xl font-black text-slate-900">Formulario de <span className="text-blue-600">Inscripción</span></h3>
+            <p className="text-slate-400 text-xs font-medium mt-1 uppercase tracking-wider italic">Reserva inmediata de cupo</p>
+          </div>
+
+          <ContactForm />
+        </div>
       </div>
     </div>
 
   </div>
-</section>
+</section>  
 
 {/* SECCIÓN 10 — PIE DE PÁGINA E INSTITUCIONAL */}
 <footer className="bg-white border-t border-slate-100">
