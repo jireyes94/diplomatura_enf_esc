@@ -362,59 +362,60 @@ export default function LandingPage() {
   </div>
 </section>
 
-      {/* COMPONENTE MODAL INTEGRADO */}
+     {/* COMPONENTE MODAL INTEGRADO — OPTIMIZADO PARA PC Y MOBILE */}
 {selectedModule !== null && (
-  <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-    {/* Overlay con desenfoque más suave */}
+  <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4">
+    {/* Overlay con desenfoque suave */}
     <div 
       className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" 
       onClick={() => setSelectedModule(null)} 
     />
     
-    <div className="relative w-full max-w-2xl bg-white rounded-[3rem] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300 border border-slate-100">
-      {/* Botón Cerrar */}
+    <div className="relative w-full max-w-2xl bg-white rounded-t-[2.5rem] sm:rounded-[3rem] shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-10 sm:zoom-in duration-300 border border-slate-100 max-h-[92vh] sm:max-h-none flex flex-col">
+      
+      {/* Botón Cerrar - Más pequeño y mejor posicionado en mobile */}
       <button 
         onClick={() => setSelectedModule(null)} 
-        className="absolute top-8 right-8 p-3 bg-slate-50 hover:bg-rose-50 text-slate-400 hover:text-rose-500 rounded-full transition-all z-20"
+        className="absolute top-4 right-4 sm:top-8 sm:right-8 p-2 sm:p-3 bg-slate-50 hover:bg-rose-50 text-slate-400 hover:text-rose-500 rounded-full transition-all z-20"
       >
-        <X size={18} />
+        <X size={16} />
       </button>
 
-      <div className="p-8 sm:p-14">
+      <div className="p-6 sm:p-14 overflow-y-auto custom-scrollbar">
         {/* Cabecera del Modal */}
-        <div className="flex items-center gap-6 mb-10">
-          <div className="w-20 h-20 bg-[#3282b8]/10 text-4xl flex items-center justify-center rounded-[1.5rem] shadow-sm">
+        <div className="flex flex-row items-center gap-4 sm:gap-6 mb-6 sm:mb-10 pr-8 sm:pr-0">
+          <div className="w-14 h-14 sm:w-20 sm:h-20 bg-[#3282b8]/10 text-2xl sm:text-4xl flex items-center justify-center rounded-2xl sm:rounded-[1.5rem] shrink-0 shadow-sm">
             {planEstudios[selectedModule].icon}
           </div>
           <div>
-            <span className="text-[10px] font-black text-[#3282b8] uppercase tracking-[0.2em]">
+            <span className="text-[9px] sm:text-[10px] font-black text-[#3282b8] uppercase tracking-[0.2em]">
               Módulo {(selectedModule + 1).toString().padStart(2, '0')}
             </span>
-            <h4 className="text-3xl font-black text-[#0f4c75] leading-tight">
+            <h4 className="text-xl sm:text-3xl font-black text-[#0f4c75] leading-tight">
               {planEstudios[selectedModule].title}
             </h4>
           </div>
         </div>
 
         {/* Lista de Contenidos */}
-        <div className="space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-            <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
-              Contenidos Técnicos del programa
+        <div className="space-y-4 sm:space-y-6">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-3 sm:pb-4">
+            <p className="text-[10px] sm:text-[11px] font-black text-slate-400 uppercase tracking-widest">
+              Contenidos Técnicos
             </p>
-            <span className="text-[10px] font-bold text-[#3282b8] bg-[#3282b8]/5 px-3 py-1 rounded-full uppercase">
+            <span className="text-[9px] sm:text-[10px] font-bold text-[#3282b8] bg-[#3282b8]/5 px-2 py-1 rounded-full uppercase">
               Actualizado 2026
             </span>
           </div>
 
-          <div className="grid gap-3 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
+          <div className="grid gap-2 sm:gap-3 max-h-[45vh] sm:max-h-[40vh] overflow-y-auto pr-1 custom-scrollbar">
             {planEstudios[selectedModule].items.map((item, idx) => (
               <div 
                 key={idx} 
-                className="flex items-start gap-4 p-5 bg-[#fafaf9] border border-slate-50 rounded-2xl hover:border-[#bbe1fa] hover:bg-white transition-all group"
+                className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-[#fafaf9] border border-slate-50 rounded-xl sm:rounded-2xl hover:border-[#bbe1fa] hover:bg-white transition-all group"
               >
-                <div className="mt-1.5 flex h-2 w-2 shrink-0 rounded-full bg-[#3282b8] group-hover:bg-[#f59e0b] transition-colors shadow-sm" />
-                <p className="text-slate-600 font-bold text-sm leading-snug uppercase tracking-tight">
+                <div className="mt-1.5 flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#3282b8] group-hover:bg-[#f59e0b] transition-colors shadow-sm" />
+                <p className="text-slate-600 font-bold text-xs sm:text-sm leading-snug uppercase tracking-tight">
                   {item}
                 </p>
               </div>
@@ -423,14 +424,14 @@ export default function LandingPage() {
         </div>
 
         {/* Botón de Acción Principal */}
-        <div className="mt-12 flex flex-col gap-4">
+        <div className="mt-8 sm:mt-12 flex flex-col gap-3 sm:gap-4">
           <button 
             onClick={() => setSelectedModule(null)} 
-            className="w-full py-5 bg-[#0f4c75] text-white font-black rounded-2xl hover:bg-[#3282b8] shadow-lg shadow-blue-900/10 transition-all active:scale-[0.98]"
+            className="w-full py-4 sm:py-5 bg-[#0f4c75] text-white font-black rounded-xl sm:rounded-2xl hover:bg-[#3282b8] shadow-lg shadow-blue-900/10 transition-all active:scale-[0.98] text-sm sm:text-base"
           >
             ENTENDIDO, VOLVER AL PLAN
           </button>
-          <p className="text-center text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+          <p className="text-center text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-tighter hidden sm:block">
             Hacé click fuera de la ventana para cerrar rápido
           </p>
         </div>
