@@ -6,6 +6,7 @@ import { X } from 'lucide-react';
 import { planEstudios } from '@/lib/data'; 
 import ContactForm from '@/components/ContactForm';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
 
 export default function LandingPage() {
   const [selectedModule, setSelectedModule] = useState<number | null>(null);
@@ -22,40 +23,107 @@ export default function LandingPage() {
     <main className="min-h-screen bg-white font-sans text-slate-900">
       <WhatsAppButton />
 
-      {/* SECCIÓN 1 — HERO (PORTADA) */}
-      <section className="relative min-h-screen flex items-center bg-slate-900 overflow-hidden">
-        <Image 
-          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
-          alt="Enfermería Escolar Profesional"
-          fill
-          priority
-          className="object-cover opacity-40"
-        />
-        <div className="container mx-auto px-6 relative z-10 text-white">
-          <div className="max-w-3xl">
-            <h1 className="text-6xl lg:text-8xl font-black leading-none mb-6">
-              Diplomatura en <br/>
-              <span className="text-emerald-400">Enfermería Escolar</span>
-            </h1>
-            <p className="text-2xl lg:text-3xl font-light mb-10 text-slate-200 leading-relaxed">
-              Especialización que integra salud, educación y prevención dentro de las instituciones educativas. 
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#inscripcion" className="px-10 py-5 bg-amber-500 hover:bg-amber-600 text-white font-black rounded-full transition-all transform hover:scale-105 shadow-2xl">
-                INSCRIBIRME AHORA
-              </a>
-              <a href="#info" className="px-10 py-5 bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md text-white font-bold rounded-full transition-all">
-                MÁS INFORMACIÓN
-              </a>
-            </div>
+{/* SECCIÓN 1 — HERO (PORTADA) */}
+<section className="relative min-h-screen flex items-center bg-[#0a192f] overflow-hidden py-12 lg:py-0">
+  {/* Imagen de Fondo con Overlay Gradiente */}
+  <div className="absolute inset-0 z-0">
+    <Image 
+      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
+      alt="Diplomatura en Enfermería Escolar Profesional"
+      fill
+      priority
+      className="object-cover opacity-30"
+    />
+    {/* Gradiente: En PC va de izquierda a derecha, en Mobile de arriba a abajo */}
+    <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f] via-[#0a192f]/60 lg:via-[#0a192f]/80 lg:bg-gradient-to-r to-transparent" />
+  </div>
+
+  <div className="container mx-auto px-6 relative z-10 text-white">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+      
+      {/* Contenido de Texto */}
+      <div className="w-full lg:w-3/5 text-center lg:text-left flex flex-col items-center lg:items-start order-2 lg:order-1">
+        {/* Badge Institucional */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-400/30 rounded-full mb-6 lg:mb-10 backdrop-blur-md">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+          </span>
+          <span className="text-[10px] font-black tracking-[0.2em] text-blue-300 uppercase">
+            Inscripciones Abiertas 2026
+          </span>
+        </div>
+
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] lg:leading-none mb-6 tracking-tighter">
+          Diplomatura en <br className="hidden lg:block"/>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+            Enfermería Escolar
+          </span>
+        </h1>
+        
+        <p className="text-lg lg:text-2xl xl:text-3xl font-light mb-10 text-slate-300 leading-relaxed max-w-2xl italic">
+          "Liderazgo, Gestión del Cuidado y Transformación en la Comunidad Educativa."
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 lg:gap-5 w-full sm:w-auto">
+          <a 
+            href="#inscripcion" 
+            className="px-10 lg:px-12 py-4 lg:py-5 bg-[#f59e0b] hover:bg-[#d97706] text-white font-black rounded-2xl transition-all transform hover:scale-105 shadow-[0_20px_50px_rgba(245,158,11,0.3)] flex items-center justify-center gap-3"
+          >
+            INSCRIBIRME AHORA
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a 
+            href="#plan" 
+            className="px-10 lg:px-12 py-4 lg:py-5 bg-white/5 hover:bg-white/10 border border-white/20 backdrop-blur-md text-white font-bold rounded-2xl transition-all text-center"
+          >
+            VER PLAN DE ESTUDIOS
+          </a>
+        </div>
+
+        {/* Info Rápida */}
+        <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-10 opacity-70">
+          <div className="flex items-center gap-2">
+            <span className="text-xl text-blue-400">📅</span>
+            <span className="text-xs font-bold uppercase tracking-widest">6 Meses</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-xl text-blue-400">💻</span>
+            <span className="text-xs font-bold uppercase tracking-widest">Modalidad Híbrida</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-xl text-blue-400">📜</span>
+            <span className="text-xs font-bold uppercase tracking-widest">Certificación Oficial</span>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Contenedor del Logo - En mobile arriba, en PC a la derecha */}
+      <div className="w-full lg:w-2/5 flex justify-center items-center order-1 lg:order-2">
+        <div className="relative group max-w-[240px] sm:max-w-[320px] lg:max-w-none">
+          {/* Glow de fondo */}
+          <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-[60px] lg:blur-[100px] animate-pulse" />
+          
+          <Image 
+            src="/images/logo.png" 
+            alt="Logo Campus Profesional"
+            width={450}
+            height={450}
+            className="relative z-10 drop-shadow-[0_0_35px_rgba(255,255,255,0.15)] object-contain transition-transform duration-700 group-hover:scale-105"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* SECCIÓN 2 — CONTEXTO / PROBLEMA */}
       <section className="py-24 bg-white border-b border-slate-100">
         <div className="container mx-auto px-6 text-center max-w-4xl">
-          <h2 className="text-4xl font-bold text-emerald-800 mb-10 italic">"La salud también se cuida en la escuela" </h2>
+          <h2 className="text-4xl font-bold blue-400 mb-10 italic">"La salud también se cuida en la escuela" </h2>
           <div className="space-y-6 text-xl text-slate-600 leading-relaxed">
             <p>Cada día miles de niños y adolescentes asisten a las escuelas con condiciones de salud que requieren seguimiento y atención profesional. </p>
             <p>Alergias, enfermedades crónicas, crisis asmáticas y otras situaciones sanitarias forman parte de la vida cotidiana dentro de las instituciones educativas. </p>
@@ -64,125 +132,160 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* SECCIÓN 3 — FUNCIONES DEL ENFERMERO ESCOLAR */}
-      <section className="py-32 bg-[#f8fafc]" id="info">
-        <div className="container mx-auto px-6">
-          <div className="max-w-2xl mb-20">
-            <h2 className="text-sm font-black tracking-[0.2em] text-emerald-600 uppercase mb-4">Rol Profesional</h2>
-            <h3 className="text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
-              Funciones que transforman <br /> 
-              <span className="text-slate-400">la comunidad educativa</span>
-            </h3>
-          </div>
+{/* SECCIÓN 3 — FUNCIONES DEL ENFERMERO ESCOLAR */}
+<section className="py-32 bg-[#fafaf9]" id="info"> {/* Fondo sutil para dar contraste */}
+  <div className="container mx-auto px-6">
+    <div className="max-w-2xl mb-20">
+      <h2 className="text-sm font-black tracking-[0.2em] text-[#0f4c75] uppercase mb-4">Rol Profesional</h2>
+      <h3 className="text-4xl lg:text-5xl font-black text-slate-800 leading-tight">
+        Funciones que transforman <br /> 
+        <span className="text-[#3282b8]/60 italic font-serif">la comunidad educativa</span>
+      </h3>
+    </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { 
-                t: "Prevención", 
-                d: "Promoción de la salud y prevención de enfermedades en toda la comunidad. ",
-                tag: "Impacto Social",
-                icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                )
-              },
-              { 
-                t: "Emergencias", 
-                d: "Atención inmediata y profesional ante accidentes o urgencias críticas. ",
-                tag: "Respuesta Rápida",
-                icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                )
-              },
-              { 
-                t: "Educación", 
-                d: "Capacitación sanitaria estratégica para docentes, padres y alumnos. ",
-                tag: "Pedagogía",
-                icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                )
-              },
-              { 
-                t: "Seguimiento", 
-                d: "Control de enfermedades crónicas bajo protocolos profesionales. ",
-                tag: "Cuidado Continuo",
-                icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                  </svg>
-                )
-              }
-            ].map((f, i) => (
-              <div key={i} className="group relative">
-                <span className="absolute -top-6 -right-2 text-8xl font-black text-slate-200/50 select-none group-hover:text-emerald-100 transition-colors duration-500">
-                  0{i + 1}
-                </span>
-                <div className="relative z-10 h-full bg-white/60 backdrop-blur-md p-8 rounded-[2.5rem] border border-white shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-emerald-200 transition-transform">
-                    {f.icon}
-                  </div>
-                  <span className="inline-block px-3 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-black uppercase tracking-widest rounded-full mb-4">{f.tag}</span>
-                  <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-emerald-700 transition-colors">{f.t}</h4>
-                  <p className="text-slate-500 leading-relaxed font-medium">{f.d}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-20 text-center">
-            <a href="#inscripcion" className="inline-block px-12 py-5 bg-emerald-600 text-white font-black rounded-2xl hover:bg-emerald-700 shadow-xl shadow-emerald-200 transition-all transform hover:-translate-y-1 active:scale-95">
-              INSCRIBIRME AHORA 
-            </a>
-            <p className="mt-4 text-slate-400 font-medium text-sm">Formación profesional con certificación nacional </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECCIÓN 4 — SALIDA LABORAL */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-          <div className="relative h-[600px] rounded-[3rem] overflow-hidden shadow-2xl">
-            <Image 
-              src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?q=80&w=2070&auto=format&fit=crop" 
-              alt="Campo Laboral" fill className="object-cover" 
-            />
-          </div>
-          <div className="max-w-4xl mx-auto lg:max-w-none">
-            <h2 className="text-4xl lg:text-5xl font-extrabold mb-8 text-slate-900 tracking-tight leading-tight">
-              Un nuevo campo profesional <br />
-              <span className="text-emerald-600">en crecimiento </span>
-            </h2>
-            <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-2xl">
-              Cada vez más instituciones educativas incorporan profesionales de enfermería para garantizar entornos escolares más seguros. 
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {[
+        { 
+          t: "Prevención", 
+          d: "Promoción de la salud y prevención de enfermedades en toda la comunidad. ",
+          tag: "Impacto Social",
+          icon: (
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          )
+        },
+        { 
+          t: "Emergencias", 
+          d: "Atención inmediata y profesional ante accidentes o urgencias críticas. ",
+          tag: "Respuesta Rápida",
+          icon: (
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          )
+        },
+        { 
+          t: "Educación", 
+          d: "Capacitación sanitaria estratégica para docentes, padres y alumnos. ",
+          tag: "Pedagogía",
+          icon: (
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          )
+        },
+        { 
+          t: "Seguimiento", 
+          d: "Control de enfermedades crónicas bajo protocolos profesionales. ",
+          tag: "Cuidado Continuo",
+          icon: (
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+            </svg>
+          )
+        }
+      ].map((f, i) => (
+        <div key={i} className="group relative">
+          <span className="absolute -top-6 -right-2 text-8xl font-black text-slate-200/40 select-none group-hover:text-[#bbe1fa]/40 transition-colors duration-500">
+            0{i + 1}
+          </span>
+          <div className="relative z-10 h-full bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+            <div className="w-16 h-16 bg-gradient-to-br from-[#0f4c75] to-[#3282b8] text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-900/10 transition-transform">
+              {f.icon}
+            </div>
+            <span className="inline-block px-3 py-1 bg-[#bbe1fa]/30 text-[#0f4c75] text-[10px] font-black uppercase tracking-widest rounded-full mb-4">
+              {f.tag}
+            </span>
+            <h4 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-[#3282b8] transition-colors">
+              {f.t}
+            </h4>
+            <p className="text-slate-500 leading-relaxed font-medium">
+              {f.d}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                { title: "Escuelas Públicas y Privadas ", icon: "🏛️", color: "bg-blue-100 text-blue-600" },
-                { title: "Educación Especial ", icon: "❤️", color: "bg-rose-100 text-rose-600" },
-                { title: "Clubes y Colonias ", icon: "⚽", color: "bg-amber-100 text-amber-600" },
-                { title: "Programas de Salud Escolar ", icon: "📋", color: "bg-emerald-100 text-emerald-600" }
-              ].map((item, i) => (
-                <div key={i} className="group p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-xl transition-all flex items-center gap-5">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${item.color} text-xl`}>{item.icon}</div>
-                  <h4 className="text-lg font-bold text-slate-900">{item.title}</h4>
-                </div>
-              ))}
-            </div>
-            <div className="mt-12">
-              <a href="#inscripcion" className="px-10 py-5 bg-emerald-600 text-white font-black rounded-2xl hover:bg-emerald-700 shadow-lg transition-all text-center">
-                INICIAR MI INSCRIPCIÓN 
-              </a>
-            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+    <div className="mt-20 text-center">
+      <a 
+        href="#inscripcion" 
+        className="inline-block px-12 py-5 bg-[#f59e0b] text-white font-black rounded-2xl hover:bg-[#d97706] shadow-xl shadow-amber-200/50 transition-all transform hover:-translate-y-1 active:scale-95"
+      >
+        SOLICITAR INFORMACIÓN
+      </a>
+      <p className="mt-4 text-slate-400 font-medium text-sm">
+        Formación profesional con certificación nacional
+      </p>
+    </div>
+  </div>
+</section>
+
+     {/* SECCIÓN 4 — SALIDA LABORAL */}
+<section className="py-24 bg-white">
+  <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+    
+    <div className="relative h-[600px] rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
+      <Image 
+        src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format&fit=crop" 
+        alt="Estudiante de enfermería" 
+        fill 
+        className="object-cover" 
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0f4c75]/40 to-transparent" />
+      <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/80 backdrop-blur-md rounded-2xl border border-white/50">
+        <p className="text-[#0f4c75] font-bold italic leading-relaxed">
+          "La enfermería escolar es el puente entre el bienestar físico y el éxito académico de los estudiantes."
+        </p>
+      </div>
+    </div>
+
+    <div className="max-w-4xl mx-auto lg:max-w-none">
+      <h2 className="text-4xl lg:text-5xl font-black mb-8 text-slate-800 tracking-tight leading-tight">
+        Un nuevo campo <br />
+        <span className="text-[#3282b8]">profesional y humano</span>
+      </h2>
+      
+      <p className="text-lg text-slate-500 mb-12 leading-relaxed max-w-2xl font-medium">
+        Convertite en el referente de salud de la institución, trabajando en entornos dinámicos donde tu rol es vital para la seguridad de la comunidad.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {[
+          { title: "Colegios Privados", icon: "🏛️" },
+          { title: "Educación Especial", icon: "💙" },
+          { title: "Centros Deportivos", icon: "🏟️" },
+          { title: "Gestión Sanitaria", icon: "📋" }
+        ].map((item, i) => (
+          <div key={i} className="group p-5 bg-[#f8fafc] border border-slate-100 rounded-2xl hover:bg-white hover:border-[#bbe1fa] hover:shadow-lg transition-all duration-300 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-xl shadow-sm group-hover:scale-110 transition-transform">
+              {item.icon}
+            </div>
+            <h4 className="text-base font-bold text-slate-700 group-hover:text-[#0f4c75] transition-colors">
+              {item.title}
+            </h4>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-12 flex flex-col sm:flex-row items-center gap-6">
+        <a 
+          href="#inscripcion" 
+          className="w-full sm:w-auto px-10 py-5 bg-[#f59e0b] text-white font-black rounded-xl hover:bg-[#d97706] shadow-lg shadow-amber-200 transition-all transform hover:-translate-y-1 text-center"
+        >
+          INICIAR MI INSCRIPCIÓN 
+        </a>
+        <div className="text-slate-400 text-[11px] font-bold uppercase tracking-[0.2em] max-w-[180px]">
+          Certificación con aval profesional nacional
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* SECCIÓN 5 — PERFIL DEL ESTUDIANTE */}
-      <section className="py-24 bg-emerald-900 text-white">
+      <section className="py-24 bg-slate-600 text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-8 italic">Dirigido a quienes buscan transformar la salud </h2>
           <p className="text-2xl font-light max-w-3xl mx-auto leading-relaxed">
@@ -192,85 +295,149 @@ export default function LandingPage() {
       </section>
 
       {/* SECCIÓN 6 — PLAN DE ESTUDIOS (12 MÓDULOS CON MODAL) */}
-      <section className="py-32 bg-white" id="plan">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-sm font-black tracking-[0.3em] text-emerald-600 uppercase mb-4">Currícula Completa</h2>
-            <h3 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6">Plan de Estudios 2026 </h3>
-            <p className="text-lg text-slate-500 font-medium">Click en cada módulo para ver el temario técnico completo. </p>
+<section className="py-32 bg-white" id="plan">
+  <div className="container mx-auto px-6">
+    <div className="text-center max-w-3xl mx-auto mb-20">
+      <h2 className="text-sm font-black tracking-[0.3em] text-[#3282b8] uppercase mb-4">Currícula Completa</h2>
+      <h3 className="text-4xl lg:text-5xl font-black text-slate-800 mb-6">Plan de Estudios 2026</h3>
+      <p className="text-lg text-slate-500 font-medium italic">Click en cada módulo para ver el temario técnico detallado.</p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      {planEstudios.map((modulo, i) => (
+        <div 
+          key={i} 
+          onClick={() => setSelectedModule(i)}
+          className="group relative p-8 bg-[#fcfdfe] border border-slate-100 rounded-[2.5rem] hover:bg-white hover:border-[#bbe1fa] hover:shadow-[0_20px_40px_rgba(15,76,117,0.06)] transition-all duration-500 cursor-pointer overflow-hidden"
+        >
+          {/* Número de fondo más sutil */}
+          <div className="absolute -right-2 -bottom-4 text-9xl font-black text-slate-50 group-hover:text-blue-50/50 transition-colors select-none">
+            {i + 1}
+          </div>
+          
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="flex h-2 w-2 rounded-full bg-[#3282b8] group-hover:bg-[#f59e0b] transition-colors"></span>
+              <span className="text-[10px] font-black tracking-widest text-slate-400 uppercase">
+                Módulo {(i + 1).toString().padStart(2, '0')}
+              </span>
+            </div>
+            
+            <h4 className="text-xl font-extrabold text-slate-800 group-hover:text-[#0f4c75] leading-tight pr-8 transition-colors">
+              {modulo.title}
+            </h4>
+            
+            <div className="mt-8 flex items-center gap-2 text-[#3282b8] font-black text-[10px] uppercase tracking-tighter group-hover:text-[#f59e0b] transition-all">
+              EXPLORAR CONTENIDOS 
+              <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Caja de Carga Horaria Suavizada */}
+    <div className="mt-20 p-10 bg-[#f8fafc] rounded-[3rem] border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto shadow-sm">
+      <div className="flex items-center gap-6 text-left">
+        <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm text-3xl border border-slate-50">
+          🎓
+        </div>
+        <div>
+          <h5 className="font-black text-[#0f4c75] text-xl">Carga Horaria Total</h5>
+          <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mt-1">
+            600 horas cátedra • Certificación Nacional
+          </p>
+        </div>
+      </div>
+      <a 
+        href="#inscripcion" 
+        className="whitespace-nowrap px-10 py-5 bg-[#0f4c75] text-white font-black rounded-2xl hover:bg-[#3282b8] transition-all shadow-lg shadow-blue-900/10 flex items-center gap-3"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        DESCARGAR BROCHURE PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+      {/* COMPONENTE MODAL INTEGRADO */}
+{selectedModule !== null && (
+  <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    {/* Overlay con desenfoque más suave */}
+    <div 
+      className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" 
+      onClick={() => setSelectedModule(null)} 
+    />
+    
+    <div className="relative w-full max-w-2xl bg-white rounded-[3rem] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300 border border-slate-100">
+      {/* Botón Cerrar */}
+      <button 
+        onClick={() => setSelectedModule(null)} 
+        className="absolute top-8 right-8 p-3 bg-slate-50 hover:bg-rose-50 text-slate-400 hover:text-rose-500 rounded-full transition-all z-20"
+      >
+        <X size={18} />
+      </button>
+
+      <div className="p-8 sm:p-14">
+        {/* Cabecera del Modal */}
+        <div className="flex items-center gap-6 mb-10">
+          <div className="w-20 h-20 bg-[#3282b8]/10 text-4xl flex items-center justify-center rounded-[1.5rem] shadow-sm">
+            {planEstudios[selectedModule].icon}
+          </div>
+          <div>
+            <span className="text-[10px] font-black text-[#3282b8] uppercase tracking-[0.2em]">
+              Módulo {(selectedModule + 1).toString().padStart(2, '0')}
+            </span>
+            <h4 className="text-3xl font-black text-[#0f4c75] leading-tight">
+              {planEstudios[selectedModule].title}
+            </h4>
+          </div>
+        </div>
+
+        {/* Lista de Contenidos */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+            <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
+              Contenidos Técnicos del programa
+            </p>
+            <span className="text-[10px] font-bold text-[#3282b8] bg-[#3282b8]/5 px-3 py-1 rounded-full uppercase">
+              Actualizado 2026
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {planEstudios.map((modulo, i) => (
+          <div className="grid gap-3 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
+            {planEstudios[selectedModule].items.map((item, idx) => (
               <div 
-                key={i} 
-                onClick={() => setSelectedModule(i)}
-                className="group relative p-8 bg-slate-50 border border-slate-100 rounded-[2rem] hover:bg-emerald-900 transition-all duration-500 cursor-pointer overflow-hidden shadow-sm"
+                key={idx} 
+                className="flex items-start gap-4 p-5 bg-[#fafaf9] border border-slate-50 rounded-2xl hover:border-[#bbe1fa] hover:bg-white transition-all group"
               >
-                <div className="absolute -right-4 -bottom-4 text-9xl font-black text-slate-200/40 group-hover:text-white/10 transition-colors">{i + 1}</div>
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="flex h-2 w-2 rounded-full bg-emerald-500 group-hover:bg-amber-400"></span>
-                    <span className="text-[10px] font-black tracking-widest text-slate-400 group-hover:text-emerald-200 uppercase">
-                      Módulo {(i + 1).toString().padStart(2, '0')}
-                    </span>
-                  </div>
-                  <h4 className="text-xl font-bold text-slate-800 group-hover:text-white leading-snug pr-8 transition-colors">{modulo.title}</h4>
-                  <div className="mt-8 flex items-center gap-2 text-emerald-600 group-hover:text-amber-400 font-bold text-xs uppercase tracking-tighter transition-all">
-                    VER TEMARIO TÉCNICO + 
-                  </div>
-                </div>
+                <div className="mt-1.5 flex h-2 w-2 shrink-0 rounded-full bg-[#3282b8] group-hover:bg-[#f59e0b] transition-colors shadow-sm" />
+                <p className="text-slate-600 font-bold text-sm leading-snug uppercase tracking-tight">
+                  {item}
+                </p>
               </div>
             ))}
           </div>
-
-          <div className="mt-20 p-8 bg-emerald-50 rounded-[2.5rem] border border-emerald-100 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto">
-            <div className="flex items-center gap-6 text-left">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm text-2xl">🎓</div>
-              <div>
-                <h5 className="font-bold text-emerald-900 text-lg">Carga Horaria Total </h5>
-                <p className="text-emerald-700/70 font-medium">600 horas cátedra con certificación nacional. </p>
-              </div>
-            </div>
-            <a href="#inscripcion" className="whitespace-nowrap px-8 py-4 bg-emerald-600 text-white font-black rounded-xl hover:bg-emerald-700 transition-all">
-              DESCARGAR BROCHURE PDF 
-            </a>
-          </div>
         </div>
-      </section>
 
-      {/* COMPONENTE MODAL INTEGRADO */}
-      {selectedModule !== null && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-md transition-opacity" onClick={() => setSelectedModule(null)} />
-          <div className="relative w-full max-w-2xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
-            <button onClick={() => setSelectedModule(null)} className="absolute top-6 right-6 p-3 bg-slate-100 hover:bg-rose-100 text-slate-500 hover:text-rose-600 rounded-full transition-colors">
-              <X size={14} />
-            </button>
-            <div className="p-8 sm:p-12">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 bg-emerald-100 text-3xl flex items-center justify-center rounded-2xl">{planEstudios[selectedModule].icon}</div>
-                <div>
-                  <span className="text-xs font-black text-emerald-600 uppercase">Módulo {selectedModule + 1}</span>
-                  <h4 className="text-2xl sm:text-3xl font-black text-slate-900">{planEstudios[selectedModule].title}</h4>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-2">Contenidos del programa </p>
-                <div className="grid gap-3">
-                  {planEstudios[selectedModule].items.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-4 p-4 bg-slate-50 rounded-2xl hover:bg-emerald-50 transition-colors">
-                      <span className="mt-1 flex h-2 w-2 rounded-full bg-emerald-500"></span>
-                      <p className="text-slate-700 font-medium">{item} </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <button onClick={() => setSelectedModule(null)} className="w-full mt-10 py-5 bg-slate-900 text-white font-black rounded-2xl hover:bg-emerald-700 transition-all">VOLVER AL PLAN</button>
-            </div>
-          </div>
+        {/* Botón de Acción Principal */}
+        <div className="mt-12 flex flex-col gap-4">
+          <button 
+            onClick={() => setSelectedModule(null)} 
+            className="w-full py-5 bg-[#0f4c75] text-white font-black rounded-2xl hover:bg-[#3282b8] shadow-lg shadow-blue-900/10 transition-all active:scale-[0.98]"
+          >
+            ENTENDIDO, VOLVER AL PLAN
+          </button>
+          <p className="text-center text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+            Hacé click fuera de la ventana para cerrar rápido
+          </p>
         </div>
-      )}
+      </div>
+    </div>
+  </div>
+)}
 
       {/* SECCIÓN 7, 8, 9 — METODOLOGÍA */}
       <section className="py-24 bg-slate-900 text-white">
@@ -309,59 +476,112 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* SECCIÓN 12 — CTA FINAL + FORMULARIO */}
-      <section className="py-24 bg-emerald-50" id="inscripcion">
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <h2 className="text-5xl font-black text-slate-900 mb-8 italic">Inscripción abierta </h2>
-            <p className="text-2xl text-slate-600 mb-8 leading-relaxed">
-              Sumate a una formación que integra salud, educación y prevención dentro de las instituciones educativas. 
-            </p>
-            <div className="inline-block p-6 bg-white rounded-3xl shadow-sm border border-emerald-100 italic font-bold text-emerald-800 text-xl">
-              "La salud también se construye en la escuela" 
-            </div>
-          </div>
-          <ContactForm />
-        </div>
-      </section>
+     {/* SECCIÓN 12 — CTA FINAL + FORMULARIO (INSCRIPCIÓN) */}
+<section className="py-24 bg-[#fafaf9]" id="inscripcion">
+  <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 xl:gap-24 items-start"> {/* Ajusté a items-start para mejor flujo con form largo */}
+    
+    <div className="max-w-xl lg:pt-10"> {/* Padding superior para alinear con el inicio del form */}
+      {/* Badge de estado */}
+      <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full mb-8">
+        <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
+        <span className="text-[10px] font-black tracking-[0.2em] text-[#0f4c75] uppercase">
+          Ciclo Lectivo 2026
+        </span>
+      </div>
 
-      {/* SECCIÓN 10 — PIE DE PÁGINA E INSTITUCIONAL */}
-<footer className="bg-white border-t border-slate-100">
-  {/* Subsección: Aliados e Instituciones */}
-  <div className="py-20 border-b border-slate-50">
-    <div className="container mx-auto px-6">
-      <p className="text-center text-slate-400 font-black uppercase tracking-[0.2em] mb-12 text-xs">
-        Organizaciones que acompañan y avalan la formación
+      <h2 className="text-5xl lg:text-6xl font-black text-slate-800 mb-8 leading-tight tracking-tighter">
+        Inscripción <br />
+        <span className="text-[#3282b8] italic font-serif">abierta</span>
+      </h2>
+      
+      <p className="text-xl text-slate-500 font-medium leading-relaxed mb-10">
+        Completá tus datos para recibir el programa detallado, costos y bonificaciones vigentes para la nueva cohorte.
       </p>
-      <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-20">
-        {/* Placeholder de Logos con mejor estilo */}
-        {[1, 2, 3, 4].map((v) => (
-          <div key={v} className="group relative">
-            <div className="h-10 w-32 bg-slate-200 rounded-lg filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:bg-emerald-50 transition-all duration-500" />
-            <span className="absolute -bottom-6 left-0 w-full text-[10px] text-center font-bold text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">
-              Institución {v}
-            </span>
-          </div>
-        ))}
+
+      {/* Cita Institucional Suavizada */}
+      <div className="relative p-8 bg-white rounded-[2rem] shadow-sm border border-slate-100 overflow-hidden group hover:shadow-md transition-shadow">
+        <div className="absolute top-0 left-0 w-2 h-full bg-[#3282b8]/20 group-hover:bg-[#f59e0b] transition-colors" />
+        <p className="text-lg text-[#0f4c75] font-bold italic leading-relaxed">
+          "La salud también se construye en la escuela, y vos podés ser el referente que lidere ese cambio."
+        </p>
+      </div>
+
+      {/* Info de contacto rápido */}
+      <div className="mt-8 flex gap-8 items-center opacity-60">
+        <div className="flex items-center gap-2">
+          <span className="text-blue-500">✓</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Cupos Limitados</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-blue-500">✓</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Pago en cuotas</span>
+        </div>
       </div>
     </div>
+
+    {/* Contenedor del Formulario con el nuevo ContactForm integrado */}
+    <div className="relative w-full max-w-lg mx-auto lg:mr-0">
+      {/* Adornos decorativos */}
+      <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#bbe1fa]/30 rounded-full blur-3xl -z-10" />
+      <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#f59e0b]/20 rounded-full blur-3xl -z-10" />
+      
+      {/* Contenedor con padding mínimo para que el ContactForm maneje su propio diseño interno */}
+      <div className="p-1 bg-white rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(15,76,117,0.15)] border border-slate-50">
+        <ContactForm />
+      </div>
+    </div>
+
   </div>
+</section>
+
+{/* SECCIÓN 10 — PIE DE PÁGINA E INSTITUCIONAL */}
+<footer className="bg-white border-t border-slate-100">
+  {/* Subsección: Aliados e Instituciones */}
+<div className="py-20 border-b border-slate-50">
+  <div className="container mx-auto px-6">
+    <p className="text-center text-slate-400 font-black uppercase tracking-[0.2em] mb-12 text-[10px]">
+      Organizaciones que acompañan y avalan la formación
+    </p>
+    <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-20">
+      
+      {/* CONTENEDOR DEL LOGO ÚNICO O PRINCIPAL */}
+      <div className="group relative">
+        <div className="relative h-16 w-64 transition-all duration-500 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100">
+          <Image 
+            src="/images/logo_ferrer.png" // Asegurate de que el archivo esté en la carpeta /public
+            alt="Logos Institucionales Campus 2026"
+            fill
+            className="object-contain"
+          />
+        </div>
+        <span className="absolute -bottom-6 left-0 w-full text-[9px] text-center font-black text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">
+          Aval Institucional 2026
+        </span>
+      </div>
+
+      {/* Si tenés más logos individuales, podés agregarlos siguiendo la misma estructura */}
+    </div>
+  </div>
+</div>
 
   {/* Subsección: Navegación y Contacto */}
-  <div className="py-20 bg-[#fcfdfe]">
+  <div className="py-20 bg-[#fafaf9]"> {/* Fondo Stone 50 para calidez */}
     <div className="container mx-auto px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         
         {/* Columna 1: Branding */}
         <div className="space-y-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-black text-xl">
-              +
-            </div>
-            <span className="text-xl font-black text-slate-900 tracking-tighter">
-              ENFERMERÍA <span className="text-emerald-600">ESCOLAR</span>
-            </span>
-          </div>
+          <div className="relative group">
+  <div className="relative h-20 w-48 transition-transform duration-500 group-hover:scale-105">
+    <Image 
+      src="/images/logo.png" 
+      alt="Logo Campus Profesional"
+      fill
+      className="object-contain"
+      priority={false}
+    />
+  </div>
+</div>
           <p className="text-slate-500 font-medium leading-relaxed text-sm">
             Especialización técnica profesional para la integración de la salud y la prevención en entornos educativos modernos.
           </p>
@@ -369,63 +589,70 @@ export default function LandingPage() {
 
         {/* Columna 2: Navegación Rápida */}
         <div>
-          <h4 className="font-black uppercase tracking-widest text-xs text-slate-900 mb-8">Navegación</h4>
-          <ul className="space-y-4 text-sm font-bold text-slate-500">
-            <li><a href="#info" className="hover:text-emerald-600 transition-colors">Rol Profesional</a></li>
-            <li><a href="#plan" className="hover:text-emerald-600 transition-colors">Plan de Estudios</a></li>
-            <li><a href="#inscripcion" className="hover:text-emerald-600 transition-colors">Inscripción Abierta</a></li>
-            <li><a href="#" className="hover:text-emerald-600 transition-colors">Preguntas Frecuentes</a></li>
+          <h4 className="font-black uppercase tracking-widest text-[10px] text-[#0f4c75] mb-8">Navegación</h4>
+          <ul className="space-y-4 text-sm font-bold text-slate-400">
+            <li><a href="#info" className="hover:text-[#3282b8] transition-colors">Rol Profesional</a></li>
+            <li><a href="#plan" className="hover:text-[#3282b8] transition-colors">Plan de Estudios</a></li>
+            <li><a href="#inscripcion" className="hover:text-[#3282b8] transition-colors">Inscripción Abierta</a></li>
+            <li><a href="#" className="hover:text-[#3282b8] transition-colors">Preguntas Frecuentes</a></li>
           </ul>
         </div>
 
         {/* Columna 3: Contacto Directo */}
         <div>
-          <h4 className="font-black uppercase tracking-widest text-xs text-slate-900 mb-8">Contacto Técnico</h4>
-          <ul className="space-y-4 text-sm font-medium text-slate-500">
+          <h4 className="font-black uppercase tracking-widest text-[10px] text-[#0f4c75] mb-8">Contacto Técnico</h4>
+          <ul className="space-y-4 text-sm font-bold text-slate-500">
             <li className="flex items-center gap-3">
-              <span className="text-emerald-500">📍</span> 
-              Sede Central, La Plata, Bs. As.
+              <span className="text-[#3282b8]">📍</span> 
+              Provincia de Buenos Aires, Argentina
             </li>
             <li className="flex items-center gap-3">
-              <span className="text-emerald-500">✉️</span> 
+              <span className="text-[#3282b8]">✉️</span> 
               consultas@enfermeriaescolar.edu.ar
             </li>
             <li className="flex items-center gap-3">
-              <span className="text-emerald-500">📞</span> 
-              +54 221 000-0000
+              <span className="text-[#3282b8]">📞</span> 
+              +54 221 552-2315
             </li>
           </ul>
         </div>
 
         {/* Columna 4: Redes y Social */}
         <div>
-          <h4 className="font-black uppercase tracking-widest text-xs text-slate-900 mb-8">Seguí el Crecimiento</h4>
-          <div className="flex gap-4">
-            {['IG', 'FB', 'LI'].map((red) => (
-              <a 
-                key={red} 
-                href="#" 
-                className="w-10 h-10 rounded-xl bg-white border border-slate-100 flex items-center justify-center text-xs font-black text-slate-400 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all shadow-sm"
-              >
-                {red}
-              </a>
-            ))}
-          </div>
-          <p className="mt-6 text-[11px] text-slate-400 font-bold leading-relaxed">
-            Unite a nuestra comunidad de profesionales de la salud.
-          </p>
-        </div>
+  <h4 className="font-black uppercase tracking-widest text-[10px] text-[#0f4c75] mb-8">
+    Seguí el Crecimiento
+  </h4>
+  <div className="flex gap-4">
+    {[
+      { name: 'IG', icon: <Instagram size={18} />, href: 'https://instagram.com/tu_cuenta' },
+      { name: 'FB', icon: <Facebook size={18} />, href: 'https://facebook.com/tu_cuenta' },
+      { name: 'LI', icon: <Linkedin size={18} />, href: 'https://linkedin.com/in/tu_cuenta' }
+    ].map((red) => (
+      <a 
+        key={red.name} 
+        href={red.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-[#0f4c75] hover:text-white hover:border-[#0f4c75] transition-all shadow-sm group"
+        aria-label={red.name}
+      >
+        <span className="transition-transform group-hover:scale-110">
+          {red.icon}
+        </span>
+      </a>
+    ))}
+  </div>
+  <p className="mt-6 text-[11px] text-slate-400 font-bold leading-relaxed">
+    Unite a nuestra comunidad de profesionales de la salud.
+  </p>
+</div>
       </div>
 
       {/* Footer Legal */}
-      <div className="mt-20 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="mt-20 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
           © 2026 Diplomatura en Enfermería Escolar — Todos los derechos reservados.
         </p>
-       {/*<div className="flex gap-8 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-          <a href="#" className="hover:text-slate-900">Privacidad</a>
-          <a href="#" className="hover:text-slate-900">Términos Legales</a>
-        </div>*/}
       </div>
     </div>
   </div>
